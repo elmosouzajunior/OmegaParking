@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OmegaParkingApp.Data;
+using OmegaParkingBusiness.Interfaces;
+using OmegaParkingData.Context;
+using OmegaParkingData.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +43,15 @@ namespace OmegaParkingApp
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddMvc();
+
+            services.AddScoped<OmegaParkingDbContext>();
+            services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository>();
+            services.AddScoped<IRegistroRepository, RegistroRepository>();
+            services.AddScoped<IVeiculoRepository, VeiculoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using OmegaParkingApp.ViewModels;
 
 namespace OmegaParkingApp.Data
 {
@@ -12,5 +13,7 @@ namespace OmegaParkingApp.Data
             : base(options)
         {
         }
+               
+        public DbSet<VeiculoViewModel> VeiculoViewModel { get; set; }
     }
 }

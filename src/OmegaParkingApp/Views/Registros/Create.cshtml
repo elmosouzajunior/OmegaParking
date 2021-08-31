@@ -1,0 +1,43 @@
+﻿@model OmegaParkingApp.ViewModels.RegistroViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RegistroViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RegistroEntrada" class="control-label"></label>
+                <input asp-for="RegistroEntrada" class="form-control" />
+                <span asp-validation-for="RegistroEntrada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegistroSaida" class="control-label"></label>
+                <input asp-for="RegistroSaida" class="form-control" />
+                <span asp-validation-for="RegistroSaida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorCobrado" class="control-label"></label>
+                <input asp-for="ValorCobrado" class="form-control" />
+                <span asp-validation-for="ValorCobrado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

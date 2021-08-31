@@ -1,6 +1,6 @@
 using System;
 
-namespace OmegaParkingApp.Models
+namespace OmegaParkingApp.ViewModels
 {
     public class ErrorViewModel
     {
